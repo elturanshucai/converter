@@ -8,7 +8,6 @@ const answer=document.querySelector('.answer')
 let pul1='RUB'
 let pul2='USD'
 
-
 fetch(`https://api.exchangerate.host/latest?base=${pul1}&symbols=${pul2}`)
             .then(res=>res.json())
             .then(data=>{
@@ -23,7 +22,6 @@ fetch(`https://api.exchangerate.host/latest?base=${pul2}&symbols=${pul1}`)
             .then(data=>
             info2.innerHTML=`1 ${pul2} = `+data.rates[pul1]+` ${pul1}`
             )
-
 
 
 leftbuttons.forEach(item=>{
@@ -60,7 +58,8 @@ rightbuttons.forEach(item=>{
         fetch(`https://api.exchangerate.host/latest?base=${pul1}&symbols=${pul2}`)
             .then(res=>res.json())
             .then(data=>{
-                input.addEventListener('keyup', ()=>{
+                input.addEventListener('keyup', (e)=>{
+                    input.value=e.target.value
                     answer.innerHTML=input.value*data.rates[pul2]
                 })
                 info1.innerHTML=`1 ${pul1} = `+data.rates[pul2]+` ${pul2}`
