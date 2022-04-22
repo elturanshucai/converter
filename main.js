@@ -13,6 +13,10 @@ fetch(`https://api.exchangerate.host/latest?base=${pul1}&symbols=${pul2}`)
             .then(data=>{
                 input.addEventListener('keyup', (e)=>{
                     input.value=e.target.value
+                    if(input.value.includes(',')){
+                        let vergul=input.value.indexOf(',')
+                        input.value=input.value.slice(0, vergul-1)+'.'
+                    }
                     answer.innerHTML=input.value*data.rates[pul2]
                 })
                 info1.innerHTML=`1 ${pul1} = `+data.rates[pul2]+` ${pul2}`
