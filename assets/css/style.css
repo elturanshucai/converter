@@ -36,7 +36,7 @@ header img{
 .login{
     width: 58px;
     height: 33px;
-    margin: 9px 0 8px 112px;
+    margin: 9px 102px 8px 109px;
     border-radius: 5px;
     border: none;
     background-color: white;
@@ -45,6 +45,7 @@ header img{
 .container{
     margin-top: 56px;
     margin-left: 253px;
+    width: 80%;
 }
 h1{
     font-weight: 700;
@@ -55,6 +56,7 @@ h1{
 .converts{
     display: flex;
     gap: 123px;
+    width: 100%;
 }
 h3{
     line-height: 18px;
@@ -128,4 +130,33 @@ input, .answer{
     margin-left: 16px;
     margin-bottom: 5px;
     color: #C6C6C6;
+}
+
+@media screen  and (max-width: 600px){
+    .container{
+        width: 80%;
+        margin: 10% auto;
+    }
+    .converts{
+        display: block;
+        width: 100%;
+    }
+    .left{
+        margin-bottom: 40px;
+    }
+    ul{
+        flex-direction: column;
+        gap: 10px;
+        margin: 15px 10px;
+    }
+    .login{
+        margin: 50px 40px 8px 40px;
+    }
+    header{
+        width: 100%;
+        padding-right: 0;
+    }
+    header img{
+        margin: 15px 0 12px 20px;
+    }
 }
