@@ -15,9 +15,12 @@ fetch(`https://api.exchangerate.host/latest?base=${pul1}&symbols=${pul2}`)
                     input.value=e.target.value
                     if(input.value.includes(',')){
                         let vergul=input.value.indexOf(',')
-                        input.value=input.value.slice(0, vergul-1)+'.'
+                        input.value=input.value.slice(0, vergul)+'.'
                     }
                     answer.innerHTML=input.value*data.rates[pul2]
+                    if(answer.innerHTML=='NaN'){
+                        answer.innerHTML=''
+                    }
                 })
                 info1.innerHTML=`1 ${pul1} = `+data.rates[pul2]+` ${pul2}`
             })
