@@ -48,6 +48,9 @@ leftbuttons.forEach(item=>{
                     }
                 })
                 answer.innerHTML=input.value*data.rates[pul2]
+                    if(answer.innerHTML=='NaN'){
+                        answer.innerHTML=''
+                    }
                 info1.innerHTML=`1 ${pul1} = `+data.rates[pul2]+` ${pul2}`
             })
         fetch(`https://api.exchangerate.host/latest?base=${pul2}&symbols=${pul1}`)
@@ -71,9 +74,15 @@ rightbuttons.forEach(item=>{
                 input.addEventListener('keyup', (e)=>{
                     input.value=e.target.value
                     answer.innerHTML=input.value*data.rates[pul2]
+                    if(answer.innerHTML=='NaN'){
+                        answer.innerHTML=''
+                    }
                 })
                 info1.innerHTML=`1 ${pul1} = `+data.rates[pul2]+` ${pul2}`
                 answer.innerHTML=input.value*data.rates[pul2]
+                    if(answer.innerHTML=='NaN'){
+                        answer.innerHTML=''
+                    }
             })
         fetch(`https://api.exchangerate.host/latest?base=${pul2}&symbols=${pul1}`)
             .then(res=>res.json())
