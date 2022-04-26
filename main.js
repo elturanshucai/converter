@@ -43,6 +43,9 @@ leftbuttons.forEach(item=>{
             .then(data=>{
                 input.addEventListener('keyup', ()=>{
                     answer.innerHTML=input.value*data.rates[pul2]
+                    if(answer.innerHTML=='NaN'){
+                        answer.innerHTML=''
+                    }
                 })
                 answer.innerHTML=input.value*data.rates[pul2]
                 info1.innerHTML=`1 ${pul1} = `+data.rates[pul2]+` ${pul2}`
